@@ -1,0 +1,14 @@
+- name: create local admin users
+  user:
+    append: yes
+    groups: sudo
+    name: "{{ item.username }}"
+    password: "{{ item.password }}"
+    shell: /bin/bash
+  with_items: "{{ qb_base_admin_users }}"
+
+- name: set local admin private keys
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ item.key }}"
+  with_items: "{{ qb_base_authorized_keys }}"

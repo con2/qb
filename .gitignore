@@ -94,3 +94,6 @@ target/
 # virtualenv
 venv/
 ENV/
+
+# Ansible
+.vault_pass.txt

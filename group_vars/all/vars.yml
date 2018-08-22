@@ -1,0 +1,2 @@
+qb_base_admin_users: "{{ vault_qb_base_admin_users }}"
+qb_base_authorized_keys: "{{ vault_qb_base_authorized_keys }}"

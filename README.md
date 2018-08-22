@@ -1,3 +1,71 @@
+# Con2 Kubernetes setup ("QB")
+
+This is the Con2 Kubernetes setup, also called "QB". Based on Kubespray and extended slightly.
+
+## Local modifications and TODO list
+
+* [x] Create admin users and distribute SSH private keys
+* [ ] Install kubernetes stuff we need. These should be in the form of an Ansible playbook (`qb-post-installation`?) that just applies a Kubernetes YAML file.
+  * [ ] [gluster-kubernetes](https://github.com/gluster/gluster-kubernetes)
+  * [ ] [dashboard](https://github.com/kubernetes/dashboard)
+  * [ ] [kubernetes-secret-generator](https://github.com/mittwald/kubernetes-secret-generator)
+  * [ ] [istio](https://github.com/istio/istio)
+  * [ ] [cert-manager](https://github.com/jetstack/cert-manager) or similar
+
+## Conventions
+
+Like, not events, but rules you should follow.
+
+### Git
+
+* Prefix all QB specific commits with "QB:".
+* Keep changes to Kubespray to a bare minimum in order to preserve maintainability.
+* Prefer additions to in-place modifications.
+* Merge from Kubespray upstream periodically.
+
+### Ansible
+
+* Put local roles under `roles/` and prefix them with `qb-` (like `qb-base`).
+* Tag role invocations with the name of the role.
+
+### Kubernetes
+
+* Kubernetes templates specific to an application (eg. [Kompassi](https://github.com/tracon/kompassi)) should not live here, but rather in the repository of the application itself.
+* [ ] Where to put infrastructure and generic application templates (such as the Con2 Python Master Webapp Template)?
+* Use [emrichen](https://github.com/japsu/emrichen) for templating.
+
+## Getting started
+
+### Vault password
+
+Ask Japsu for the vault password and put it in `.vault_pass.txt` (gitignored). This lets you `ansible-vault edit group_vars/all/vault` and run Ansible.
+
+### Local playground
+
+Requirements:
+
+* Vagrant
+* VirtualBox
+* Python 2.7
+* `virtualenv`
+
+Getting started:
+
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    vagrant up
+
+### Configuring the actual environment
+
+TBD.
+
+# End of Con2 specific information
+
+Original `README.md` follows.
+
+
+
 ![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes-incubator/kubespray/master/docs/img/kubernetes-logo.png)
 
 Deploy a Production Ready Kubernetes Cluster

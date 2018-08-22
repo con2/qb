@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: qb-base
+      tags: [qb-base]
+
+- import_playbook: cluster.yml

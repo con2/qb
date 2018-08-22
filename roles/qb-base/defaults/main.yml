@@ -1,0 +1,8 @@
+# These vars come from the vault, prefixed with vault_:
+# qb_base_admin_users:
+#   - username: japsu
+#     password: $6$salt$hash…
+
+# qb_base_authorized_keys:
+#   - username: japsu
+#     key: ssh-rsa AAAAB3Nz…
