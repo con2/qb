@@ -1,3 +1,5 @@
+![Con2 – Collaboration Hub for Volunteer-Run Conventions in Finland](https://con2.fi/media/uploads/2018/08/23/con2_wide_800.png)
+
 # Con2 Kubernetes setup ("QB")
 
 This is the Con2 Kubernetes setup, also called "QB". Based on Kubespray and extended slightly.
