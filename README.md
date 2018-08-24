@@ -48,12 +48,11 @@ Requirements:
 
 * Vagrant
 * VirtualBox
-* Python 2.7
-* `virtualenv`
+* Python 3
 
 Getting started:
 
-    virtualenv venv
+    python3 -m venv venv
     source venv/bin/activate
     pip install -r requirements.txt
     vagrant up
