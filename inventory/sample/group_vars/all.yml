@@ -60,7 +60,7 @@ bin_dir: /usr/local/bin
 
 ## There are some changes specific to the cloud providers
 ## for instance we need to encapsulate packets with some network plugins
-## If set the possible values are either 'gce', 'aws', 'azure', 'openstack', 'vsphere', or 'external'
+## If set the possible values are either 'gce', 'aws', 'azure', 'openstack', 'vsphere', 'oci', or 'external'
 ## When openstack is used make sure to source in the openstack credentials
 ## like you would do when using nova-client before starting the playbook.
 #cloud_provider:
@@ -95,6 +95,22 @@ bin_dir: /usr/local/bin
 #openstack_lbaas_monitor_timeout: "30s"
 #openstack_lbaas_monitor_max_retries: "3"
 
+## When Oracle Cloud Infrastructure is used, set these variables
+#oci_private_key:
+#oci_region_id:
+#oci_tenancy_id:
+#oci_user_id:
+#oci_user_fingerprint:
+#oci_compartment_id:
+#oci_vnc_id:
+#oci_subnet1_id:
+#oci_subnet2_id:
+## Overide these default behaviors if you wish
+#oci_security_list_management: All
+# If oci_use_instance_principals is true, you do not need to set the region, tenancy, user, key, passphrase, or fingerprint
+#oci_use_instance_principals: false
+#oci_cloud_controller_version: 0.5.0
+
 ## Uncomment to enable experimental kubeadm deployment mode
 #kubeadm_enabled: false
 ## Set these proxy values in order to update package manager and docker daemon to use proxies
@@ -128,6 +144,11 @@ bin_dir: /usr/local/bin
 ## Etcd is restricted by default to 512M on systems under 4GB RAM, 512MB is not enough for much more than testing.
 ## Set this if your etcd nodes have less than 4GB but you want more RAM for etcd. Set to 0 for unrestricted RAM.
 #etcd_memory_limit: "512M"
+
+## Etcd has a default of 2G for its space quota. If you put a value in etcd_memory_limit which is less than
+## etcd_quota_backend_bytes, you may encounter out of memory terminations of the etcd cluster. Please check
+## etcd documentation for more information.
+#etcd_quota_backend_bytes: "2G"
 
 # The read-only port for the Kubelet to serve on with no authentication/authorization. Uncomment to enable.
 #kube_read_only_port: 10255
