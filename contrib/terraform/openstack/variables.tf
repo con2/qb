@@ -103,6 +103,11 @@ variable "network_name" {
   default     = "internal"
 }
 
+variable "use_neutron" {
+  description = "Use neutron"
+  default     = 1
+}
+
 variable "subnet_cidr" {
   description = "Subnet CIDR block."
   type = "string"
@@ -132,4 +137,10 @@ variable "supplementary_master_groups" {
 variable "supplementary_node_groups" {
   description = "supplementary kubespray ansible groups for worker nodes, such as kube-ingress"
   default = ""
+}
+
+variable "bastion_allowed_remote_ips" {
+  description = "An array of CIDRs allowed to SSH to hosts"
+  type = "list"
+  default = ["0.0.0.0/0"]
 }
