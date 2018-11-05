@@ -143,7 +143,8 @@ Vagrant.configure("2") do |config|
         "local_release_dir" => $local_release_dir,
         "download_run_once": "False",
         "kube_network_plugin": $network_plugin,
-        "kube_network_plugin_multus": $multi_networking
+        "kube_network_plugin_multus": $multi_networking,
+        "ansible_python_interpreter": "/usr/bin/python3"
       }
 
       config.vm.network :private_network, ip: ip

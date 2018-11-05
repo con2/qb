@@ -59,7 +59,25 @@ Getting started:
 
 ### Configuring the actual environment
 
-TBD.
+First set up the virtualenv as above. Then set up whatever SSH configuration you may need to jump to the cluster, such as `~/.ssh/config`:
+
+    Host qb1
+        Hostname qb1.con2.fi
+        ProxyJump monokkeli.tracon.fi
+
+    Host qb2
+        Hostname qb2.con2.fi
+        ProxyJump monokkeli.tracon.fi
+
+    Host qb3
+        Hostname qb3.con2.fi
+        ProxyJump monokkeli.tracon.fi
+
+Now SSH to each of these machines once and accept their public keys.
+
+Then you can run Ansible:
+
+    ansible-playbook -bKi inventory/qb-production/hosts.ini qb.yml
 
 # End of Con2 specific information
 

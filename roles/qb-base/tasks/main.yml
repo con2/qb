@@ -1,3 +1,8 @@
+- name: enable universe repo
+  apt_repository:
+    repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release|lower }} universe"
+    state: present
+
 - name: install ssh config file
   copy: dest=/etc/ssh/sshd_config src=sshd_config mode=0600
   notify: restart ssh
