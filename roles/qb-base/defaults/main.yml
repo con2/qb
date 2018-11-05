@@ -6,3 +6,6 @@
 # qb_base_authorized_keys:
 #   - username: japsu
 #     key: ssh-rsa AAAAB3Nz…
+
+qb_base_users_to_remove:
+  - asennus

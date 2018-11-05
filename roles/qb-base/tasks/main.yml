@@ -16,3 +16,10 @@
     user: "{{ item.username }}"
     key: "{{ item.key }}"
   with_items: "{{ qb_base_authorized_keys }}"
+
+- name: remove obsolete users
+  user:
+    name: "{{ item }}"
+    state: absent
+    remove: true
+  with_items: "{{ qb_base_users_to_remove }}"
