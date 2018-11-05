@@ -3,7 +3,7 @@
 dashboard_enabled: true
 
 # Helm deployment
-helm_enabled: false
+helm_enabled: true
 
 # Registry deployment
 registry_enabled: false
@@ -41,7 +41,7 @@ cephfs_provisioner_enabled: false
 # cephfs_provisioner_deterministic_names: true
 
 # Nginx ingress controller deployment
-ingress_nginx_enabled: false
+ingress_nginx_enabled: true
 # ingress_nginx_host_network: false
 # ingress_nginx_nodeselector:
 #   node-role.kubernetes.io/master: ""
@@ -57,5 +57,5 @@ ingress_nginx_enabled: false
 #   53: "kube-system/kube-dns:53"
 
 # Cert manager deployment
-cert_manager_enabled: false
+cert_manager_enabled: true
 # cert_manager_namespace: "cert-manager"
