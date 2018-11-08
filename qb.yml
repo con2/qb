@@ -15,9 +15,3 @@
         - node-exporter
 
 - import_playbook: cluster.yml
-
-- hosts: gfs-cluster
-  roles:
-    - role: ./contrib/network-storage/glusterfs/roles/uninstall
-      tags:
-        - qb-uninstall-glusterfs
