@@ -1,0 +1,34 @@
+---
+- name: Ensure GlusterFS is stopped and not enabled at boot.
+  service:
+    name: "{{ glusterfs_daemon }}"
+    state: stopped
+    enabled: no
+
+- name: Ensure GlusterFS is uninstalled.
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - glusterfs-server
+    - glusterfs-client
+
+- name: Remove PPA for GlusterFS.
+  apt_repository:
+    repo: 'ppa:gluster/glusterfs-{{ glusterfs_ppa_version }}'
+    state: absent
+
+- name: remove glusterfs from fstab
+  mount:
+    name: "{{ gluster_mount_dir }}"
+    state: absent
+
+- name: unmount xfs filesystem
+  mount:
+    name: "{{ gluster_volume_node_mount_dir }}"
+    state: absent
+
+- name: remove xfs mountpoint
+  file:
+    path: "{{ gluster_volume_node_mount_dir }}"
+    state: absent
