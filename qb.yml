@@ -2,5 +2,7 @@
   roles:
     - role: qb-base
       tags: [qb-base]
+    - role: node-exporter
+      tags: [node-exporter]
 
 - import_playbook: cluster.yml
