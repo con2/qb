@@ -9,3 +9,19 @@
     device: "{{ qb_storage_slow_device }}"
     number: 1
     state: present
+
+# TODO should they be here?
+- name: Disable swap
+  command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+
+- name: Ensure swap is not mounted at boot
+  mount:
+    name: none
+    fstype: swap
+    state: absent
+
+- name: Remove swap file
+  file:
+    path: /swap.img
+    state: absent
