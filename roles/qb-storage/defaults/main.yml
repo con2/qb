@@ -1,0 +1,2 @@
+qb_storage_fast_device: /dev/sdb
+qb_storage_slow_device: /dev/sdc

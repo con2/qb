@@ -1,0 +1,11 @@
+- name: Set up the fast disk partition
+  parted:
+    device: "{{ qb_storage_fast_device }}"
+    number: 1
+    state: present
+
+- name: Set up the slow disk partition
+  parted:
+    device: "{{ qb_storage_slow_device }}"
+    number: 1
+    state: present

@@ -1,8 +1,19 @@
 - hosts: all
   roles:
     - role: qb-base
-      tags: [qb-base]
+      tags:
+        - qb-base
+
+    - role: qb-storage
+      tags:
+        - qb-storage
+      when:
+        - qb_storage_enabled
+
     - role: node-exporter
-      tags: [node-exporter]
+      tags:
+        - node-exporter
 
 - import_playbook: cluster.yml
+
+- import_playbook: contrib/network-storage/glusterfs/glusterfs.yml

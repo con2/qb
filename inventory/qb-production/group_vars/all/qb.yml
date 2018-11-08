@@ -1,0 +1,2 @@
+qb_storage_enabled: true
+disk_volume_device_1: /dev/sdb1
