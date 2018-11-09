@@ -1,17 +1,18 @@
-- hosts: all
-  roles:
-    - role: qb-base
-      tags:
-        - qb-base
+# - hosts: all
+#   roles:
+#     - role: qb-base
+#       tags:
+#         - qb-base
 
-    - role: qb-storage
-      tags:
-        - qb-storage
-      when:
-        - qb_storage_enabled
+#     - role: qb-storage
+#       tags:
+#         - qb-storage
+#       when:
+#         - qb_storage_enabled
 
-    - role: node-exporter
-      tags:
-        - node-exporter
+#     - role: node-exporter
+#       tags:
+#         - node-exporter
 
-- import_playbook: cluster.yml
+# - import_playbook: cluster.yml
+- import_playbook: contrib/network-storage/heketi/heketi.yml

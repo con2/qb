@@ -1,2 +1,4 @@
 qb_base_admin_users: "{{ vault_qb_base_admin_users }}"
 qb_base_authorized_keys: "{{ vault_qb_base_authorized_keys }}"
+heketi_admin_key: "{{ vault_heketi_admin_key }}"
+heketi_user_key: "{{ vault_heketi_user_key }}"
