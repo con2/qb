@@ -1,3 +1,1 @@
-qb_post_install_k8s_resources:
-  - basename: kubernetes-dashboard.yml
-    url: https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+cert_manager_email: yhteys@con2.fi
