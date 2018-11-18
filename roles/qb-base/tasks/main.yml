@@ -1,3 +1,12 @@
+- name: set internal network interface IP address
+  template:
+    src: 99-internal-network.yml.j2
+    dest: /etc/netplan/99-internal-network.yaml
+    mode: 0644
+  notify: netplan apply
+  tags:
+    - qb-base-internal-ip-address
+
 - name: enable universe repo
   apt_repository:
     repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release|lower }} universe"
