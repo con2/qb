@@ -16,11 +16,11 @@
 
 - import_playbook: cluster.yml
 
-- hosts: all
-  roles:
-    - role: qb-post-install
-      tags:
-        - qb-post-install
+# - hosts: all
+#   roles:
+#     - role: qb-post-install
+#       tags:
+#         - qb-post-install
 
 # TODO heccetti :(
 # - import_playbook: contrib/network-storage/heketi/heketi.yml

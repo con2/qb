@@ -1,4 +1,10 @@
+- name: install openshift python module
+  delegate_to: "{{groups['kube-master'][0]}}"
+  pip:
+    name: openshift
+
 - name: create cert-manager cluster issuer
+  delegate_to: "{{groups['kube-master'][0]}}"
   k8s:
     state: present
     definition:
